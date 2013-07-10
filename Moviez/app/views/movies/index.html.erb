@@ -1,0 +1,11 @@
+<h2>Moviez</h2>
+<form action="/movies/search" method="get">
+  <input type="text" name="title">
+  <button>Search</button>
+</form>
+<h2>ONLY CLICK ON MOVIES!!!</h2>
+<% @movies.each do |movie| %>
+  <a href="/movies/<%= movie.title %>">
+    <%= movie.title %><br/>
+  </a>
+<% end %>
