@@ -10,7 +10,12 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Imdb::Movie.new(params[:id])
+    # if Movie.find(params[:id])
+    @movie = Movie.where(id: params[:id]).first
+    if @movie.nil?
+      @movie = Imdb::Movie.new(params[:id])
+    end
+
   end
 
   def new
@@ -25,6 +30,6 @@ class MoviesController < ApplicationController
     @movie.mpaa_rating = movie.mpaa_rating
     @movie.rating = movie.rating
     @movie.save
-    redirect_to("/movies/#{params[:id]}")
+    redirect_to("/movies")
   end
 end
