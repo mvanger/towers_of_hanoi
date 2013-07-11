@@ -10,18 +10,21 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movies = Imdb::Search.new(params[:id]).movies.first
+    @movie = Imdb::Movie.new(params[:id])
   end
 
-  def update
+  def new
+  end
+
+  def create
     @movie = Movie.new
-    movie = Imdb::Search.new(params[:id]).movies.first
+    movie = Imdb::Movie.new(params[:id])
     @movie.title = movie.title
     @movie.year = movie.year
     @movie.plot = movie.plot
     @movie.mpaa_rating = movie.mpaa_rating
     @movie.rating = movie.rating
     @movie.save
-    redirect_to("/movies/#{@movie.title}")
+    redirect_to("/movies/#{params[:id]}")
   end
 end
