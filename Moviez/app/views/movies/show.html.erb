@@ -3,3 +3,5 @@ Year: <%= @movies.year %><br/>
 Plot: <%= @movies.plot %><br/>
 MPAA Rating: <%= @movies.mpaa_rating %><br/>
 Rating: <%= @movies.rating %>
+
+<%= button_to "Favorite", favorite_path(movie_id: @movies.id) %>
