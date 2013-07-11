@@ -6,3 +6,5 @@ MPAA Rating: <%= @movie.mpaa_rating %><br/>
 Rating: <%= @movie.rating %>
 
 <%= button_to "Save", save_path(movie_id: @movie.id) %>
+
+<%= button_to "Delete", destroy_path(movie_id: @movie.id) %>
