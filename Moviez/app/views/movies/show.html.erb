@@ -1,10 +1,5 @@
 <h2>Movie</h2>
-Title: <%= @movie.title %><br/>
-Year: <%= @movie.year %><br/>
-Plot: <%= truncate("#{@movie.plot}", length: 50) %><br/>
-MPAA Rating: <%= @movie.mpaa_rating %><br/>
-Rating: <%= number_to_percentage((@movie.rating * 10), precision: 0) %><br/>
-Length: <%= @movie.length/60 %> hours and <%= @movie.length%60 %> minutes
+<%= render 'description' %>
 
 <%= button_to "Save", save_path(movie_id: @movie.id) %>
 
