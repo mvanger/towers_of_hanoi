@@ -7,6 +7,7 @@ class CreateMoviesTable < ActiveRecord::Migration
       t.string :mpaa_rating
       t.decimal :rating, default: 5, minimum: 0, maximum: 10
       t.integer :length
+      t.text :poster
     end
   end
 end

@@ -1,4 +1,7 @@
 <h2>Movie</h2>
 <%= render 'description' %>
 
+<%= button_to "+", rating_path(@movie, rating: "+1") %>
+<%= button_to "-", rating_path(@movie, rating: "-1") %>
+
 <%= button_to "Delete", destroy_path(movie_id: @movie.id) %>

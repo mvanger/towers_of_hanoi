@@ -1,13 +1,19 @@
-Title: <%= @movie.title %><br/>
+<h3>Title: <%= @movie.title %></h3><br/>
+<img src="<%= @movie.poster %>" width=400 /><br/>
 Year: <%= @movie.year %><br/>
 Plot: <%= truncate("#{@movie.plot}", length: 50) %><br/>
 MPAA Rating: <%= @movie.mpaa_rating %><br/>
-Rating: <%= number_to_percentage((@movie.rating * 10), precision: 0) %><br/>
-Length: <%= @movie.length/60 %> hours
+Length:
+<% if @movie.length/60 == 0 %>
+<% else %>
+  <%= @movie.length/60 %> hours
+<% end %>
 <% case @movie.length%60 %>
 <% when 0 %>
 <% when 1 %>
-  and <%= @movie.length%60 %> minute
+  <%= @movie.length%60 %> minute
 <% else %>
-  and <%= @movie.length%60 %> minutes
+  <%= @movie.length%60 %> minutes
 <% end %>
+<br/>
+Rating: <%= number_to_percentage((@movie.rating * 10), precision: 0) %><br/>

@@ -5,6 +5,7 @@ Moviez::Application.routes.draw do
   post '/movies/:id/destroy' => 'movies#destroy', as: 'destroy'
   get '/movies/:id' => 'movies#show'
   get '/movies' => 'movies#index'
+  post '/movies/saved/:id/rating' => 'movies#rating', as: 'rating'
   get '/movies/saved/:id' => 'movies#saved'
 
 

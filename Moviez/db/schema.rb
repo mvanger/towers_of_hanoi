@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130710194943) do
     t.string  "mpaa_rating"
     t.decimal "rating",      :default => 5.0
     t.integer "length"
+    t.text    "poster"
   end
 
 end
