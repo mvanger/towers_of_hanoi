@@ -1,7 +1,7 @@
 <h2>Movie</h2>
 Title: <%= @movie.title %><br/>
 Year: <%= @movie.year %><br/>
-Plot: <%= @movie.plot %><br/>
+Plot: <%= truncate("#{@movie.plot}", length: 50) %><br/>
 MPAA Rating: <%= @movie.mpaa_rating %><br/>
 Rating: <%= number_to_percentage((@movie.rating * 10), precision: 0) %>
 
