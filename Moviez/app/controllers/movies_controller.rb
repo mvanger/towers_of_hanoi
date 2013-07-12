@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Imdb::Search.new(params[:title]).movies[0..84]
+    @searched_movies = Imdb::Search.new(params[:title]).movies[0..84]
     render "index"
   end
 
@@ -15,6 +15,10 @@ class MoviesController < ApplicationController
     if @movie.nil?
       @movie = Imdb::Movie.new(params[:id])
     end
+  end
+
+  def saved
+    @movie = Movie.find(params[:id])
   end
 
   def show_saved
@@ -36,6 +40,7 @@ class MoviesController < ApplicationController
     @movie.plot = movie.plot
     @movie.mpaa_rating = movie.mpaa_rating
     @movie.rating = 5
+    @movie.length = movie.length
     @movie.save
     redirect_to("/movies")
   end

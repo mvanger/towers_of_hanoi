@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130710194943) do
     t.text    "plot"
     t.string  "mpaa_rating"
     t.decimal "rating",      :default => 5.0
+    t.integer "length"
   end
 
 end

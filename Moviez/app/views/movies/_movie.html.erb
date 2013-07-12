@@ -1,5 +1,14 @@
-<% @movies.each do |movie| %>
-  <a href="/movies/<%= movie.id %>">
-    <%= movie.title %><br/>
-  </a>
+
+<% if @searched_movies %>
+  <% @searched_movies.each do |movie| %>
+    <a href="/movies/<%= movie.id %>">
+      <%= movie.title %><br/>
+    </a>
+  <% end %>
+<% else %>
+  <% @movies.each do |movie| %>
+    <a href="/movies/saved/<%= movie.id %>">
+      <%= movie.title %><br/>
+    </a>
+  <% end %>
 <% end %>
