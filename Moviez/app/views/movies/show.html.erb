@@ -3,7 +3,7 @@ Title: <%= @movie.title %><br/>
 Year: <%= @movie.year %><br/>
 Plot: <%= @movie.plot %><br/>
 MPAA Rating: <%= @movie.mpaa_rating %><br/>
-Rating: <%= @movie.rating %>
+Rating: <%= number_to_percentage((@movie.rating * 10), precision: 0) %>
 
 <%= button_to "Save", save_path(movie_id: @movie.id) %>
 
