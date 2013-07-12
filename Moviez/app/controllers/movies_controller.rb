@@ -21,14 +21,6 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
-  def show_saved
-    @movie = Movie.find(params[:id])
-  end
-
-  def show_searched
-    @movie = Imdb::Movie.new(params[:id])
-  end
-
   def new
   end
 
